@@ -5,6 +5,7 @@ const Button = props => {
     return (
         <Wrapper
             type={props.type}
+            onClick={props.click}
         >
             Log in
         </Wrapper>

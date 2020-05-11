@@ -27,12 +27,12 @@ export const GlobalStyle = createGlobalStyle`
 export const Wrapper = styled.div`
     width: 100%;
     height: 100vh;
-    position: absolute;
     display: flex;
+    position: absolute;
+    min-width: ${formWidth}px;
     align-items: center;
     justify-content: center;
     background-image: linear-gradient( 135deg, #90F7EC 10%, ${WrapperBgColor} 100%);
-    min-width: ${formWidth}px;
 `;
 
 Wrapper.form = styled.div`

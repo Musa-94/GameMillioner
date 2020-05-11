@@ -4,7 +4,7 @@ const bgInput = '#4C83FF';
 const WrapperBgColor = '#32CCBC';
 
 export const Wrapper = styled.button`
-    font-size: 18px;
+    font-size: 20px;
     padding: 20px;
     margin: 20px;
     background-image: linear-gradient(90deg, ${WrapperBgColor} 0, ${WrapperBgColor} 50%, ${bgInput} 50%, ${bgInput} 100%);
