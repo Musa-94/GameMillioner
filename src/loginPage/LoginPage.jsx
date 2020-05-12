@@ -12,7 +12,7 @@ class LoginPage extends PureComponent {
         super(props);
 
         this.state = {
-            userName: '',
+            login: '',
             password: '',
         }
     }
@@ -21,7 +21,7 @@ class LoginPage extends PureComponent {
         console.info('Login page did mount');
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
+    componentDidUpdate() {
         console.info('update Login page');
     }
 
@@ -30,32 +30,38 @@ class LoginPage extends PureComponent {
     }
 
     handleChangeInput = e => {
-        const target = e.target;
+        const { target } = e;
         const value = target.value;
         const name = target.name;
 
         this.setState({
             [name]: value
-        })
+        });
     }
 
     handleSubmit = () => {
-        if (this.state.userName && this.state.password) {
-            // this.props.logIn(this.state);
-            const user = {
-                login: this.state.userName,
-                password: this.state.password,
-            }
-            console.log('user:', user);
+        const {
+            login,
+            password,
+        } = this.state;
 
-            this.clearFields();
+        if (!login || !password) {
+            return;
         }
+
+        const user = {
+            login: login,
+            password: password,
+        }
+        console.log('user:', user);
+
+        this.clearFields();
     }
 
     clearFields = () => {
         this.setState({
-            username: '',
-            password: null
+            login: '',
+            password: '',
         })
     }
 
@@ -64,14 +70,18 @@ class LoginPage extends PureComponent {
             handleSubmit,
             handleChangeInput,
         } = this;
+        const {
+            login,
+            password,
+        } = this.state;
 
         return (
             <>
-                <Wrapper>
-                    <Wrapper.form>
+                <Wrapper data-at='wrapper'>
+                    <Wrapper.form data-at='wrapper_form'>
                         <Input
                             type={'text'}
-                            name={'userName'}
+                            name={'login'}
                             change={handleChangeInput}
                             placeholder={'Login...'}
                         />
